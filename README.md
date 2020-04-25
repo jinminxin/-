@@ -9,3 +9,5 @@
   编程语言：java
   
   工具：eclipse
+  
+  补充说明：LifeGame.java和Methods.java 是实验的代码，lifegame.zip是项目的package，压缩文件。
