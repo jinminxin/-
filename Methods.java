@@ -1,17 +1,15 @@
 package lifegame;
 
-
-
-
 public class Methods {
 	 public Methods() {
 	    }
 
 	    //该方法检测所有位置，并返回对应位置的point数组
 	    //用point数组，记录对应位置下一轮的状态，1下一代死，2下一代继续活，3下一代复活
-	    public int[] check(String[][] lifeMap, int[] point) {
+	    public int[] check(String[][] lifeMap) {
 
 	        int n = 0;
+	        int point[] = new int[16];
 	        //统计周围邻居的情况
 	        for (int i = 0; i < 4; i++) {
 	            for (int j = 0; j < 4; j++) {
@@ -21,7 +19,7 @@ public class Methods {
 	                   	           （ 1）一个人可以有8个邻居；
 	                   	           （ 2）一个人若只有一个邻居，在下一代会孤独的死去；
 	                    	（3）若有2或3个邻居，在下一代依然活着；
-	                    	（4）若有4个或以上邻居，在下一代会因拥挤而死；
+	          				（4）其他情况，在下一代会死去；
 	                    	（5）死去的人若有3个邻居，在下一代会复活；
 	                    	（6）所有的死去或复活都在下一代变化时同时发生。
 	                */
@@ -71,11 +69,9 @@ public class Methods {
 
 	                //用一个数组，记录对应位置下一轮的状态，1下一代死，2下一代继续活，3下一代复活
 	                if (lifeMap[i][j].equals("●")) {
-	                    if (life == 1)
-	                        point[n] = 1;
-	                    else if (life == 2 || life == 3)
+	                    if (life == 2 || life == 3)
 	                        point[n] = 2;
-	                    else if (life >= 4)
+	                    else
 	                        point[n] = 1;
 	                } else {
 	                    if (life == 3)
